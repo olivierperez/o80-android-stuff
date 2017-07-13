@@ -29,6 +29,9 @@ android {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
+    compile project(path: ':androidstuff')
+//    compile 'com.github.olivierperez:o80-android-stuff:0.0.1'
+
     compile 'com.android.support:appcompat-v7:26.0.0-beta2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 

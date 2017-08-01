@@ -76,4 +76,14 @@ public final class DateHelper {
                 && calendarMod.get(Calendar.DAY_OF_YEAR) == calendarToCheck.get(Calendar.DAY_OF_YEAR);
     }
 
+    /**
+     * Check is {@code monthToCheck} is stricly before {@code reference}.
+     * @param monthToCheck The month that must be before
+     * @param reference The month that must be after
+     */
+    public static boolean monthIsBefore(Calendar monthToCheck, Calendar reference) {
+        return monthToCheck.get(Calendar.YEAR) < reference.get(Calendar.YEAR)
+                || monthToCheck.get(Calendar.MONTH) < reference.get(Calendar.MONTH);
+    }
+
 }

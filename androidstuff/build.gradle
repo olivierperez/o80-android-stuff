@@ -23,6 +23,7 @@ android {
 }
 dependencies {
     final SUPPORT_LIBRARY_VERSION = '26.0.0'
+    final BUTTERKNIFE_VERSION = '8.7.0'
 
     // Support
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"

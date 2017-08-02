@@ -1,1 +1,1 @@
-include ':app', ':androidstuff'
+include ':app', ':androidstuff', ':androidstuff-mvp'

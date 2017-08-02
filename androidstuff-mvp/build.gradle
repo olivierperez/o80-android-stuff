@@ -2,19 +2,19 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
-
+    compileSdkVersion cCompileSdkVersion
+    buildToolsVersion cBuildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion cMinSdkVersion
+        targetSdkVersion cTargetSdkVersion
+        versionCode cVersionCode
+        versionName cVersionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,29 +24,27 @@ android {
 }
 
 dependencies {
-    final SUPPORT_LIBRARY_VERSION = '26.0.0'
-    final BUTTERKNIFE_VERSION = '8.7.0'
 
     // Support
-    compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
-    compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
-    provided 'javax.inject:javax.inject:1'
+    compile lib.appcompat
+    compile lib.recyclerView
+    provided lib.inject
 
     // Logs
-    compile 'com.jakewharton.timber:timber:4.5.1'
+    compile lib.timber
 
     // Rx
-    compile 'io.reactivex.rxjava2:rxjava:2.1.1'
+    compile lib.rx2Java
 
     // UI
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
-    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+    compile lib.picasso
+    compile lib.calligraphy
+    compile lib.butterknife
+    annotationProcessor lib.butterknifeCompile
 
     // Tests
-    testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    testCompile lib.junit
+    androidTestCompile(lib.espresso, {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 }

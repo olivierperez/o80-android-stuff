@@ -27,7 +27,7 @@ android {
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile lib.kotlin
 
     compile project(path: ':androidstuff')
     compile project(path: ':androidstuff-mvp')

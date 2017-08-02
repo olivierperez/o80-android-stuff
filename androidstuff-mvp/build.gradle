@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -24,6 +25,7 @@ android {
 }
 
 dependencies {
+    compile lib.kotlin
 
     // Support
     compile lib.appcompat

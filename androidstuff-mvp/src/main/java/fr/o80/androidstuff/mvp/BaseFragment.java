@@ -10,22 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 /**
  * @author Olivier Perez
  */
 public abstract class BaseFragment extends Fragment implements BaseView {
 
-    private Unbinder unbinder;
-
     @Override
     public final View onCreateView(LayoutInflater inflater, ViewGroup container,
                                    Bundle savedInstanceState) {
-        View v = inflater.inflate(getLayoutResource(), container, false);
-        unbinder = ButterKnife.bind(this, v);
-        return v;
+        return inflater.inflate(getLayoutResource(), container, false);
     }
 
     @Override
@@ -41,7 +34,6 @@ public abstract class BaseFragment extends Fragment implements BaseView {
         if (getPresenter() != null) {
             getPresenter().detachView();
         }
-        unbinder.unbind();
         View view = getView();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion cCompileSdkVersion
@@ -41,8 +40,6 @@ dependencies {
     // UI
     compile lib.picasso
     compile lib.calligraphy
-    compile lib.butterknife
-    annotationProcessor lib.butterknifeCompile
 
     // Tests
     testCompile lib.junit

@@ -13,7 +13,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.0'
     }
 }
 
@@ -41,7 +40,6 @@ ext {
 
 ext {
     version = [
-            butterknife: '8.8.0',
             dagger     : '2.9',
             support    : '26.0.0',
             dbflow     : '4.0.5'
@@ -74,9 +72,6 @@ ext {
             rx2Permissions    : 'com.github.VictorAlbertos.RxPermissionsResult:rx2:0.0.4',
             rx2Java           : 'io.reactivex.rxjava2:rxjava:2.1.2',
             rx2Android        : 'io.reactivex.rxjava2:rxandroid:2.0.1',
-
-            butterknife       : "com.jakewharton:butterknife:${version.butterknife}",
-            butterknifeCompile: "com.jakewharton:butterknife-compiler:${version.butterknife}",
 
             autovalue         : 'com.google.auto.value:auto-value:1.4',
             timber            : 'com.jakewharton.timber:timber:4.5.1',

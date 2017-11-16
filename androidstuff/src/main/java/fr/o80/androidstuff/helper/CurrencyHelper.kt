@@ -19,28 +19,33 @@ import java.util.Locale
  * *
  * @return The number in string with 2 decimals
  */
-fun Double.format(): String {
-    val formatter = NumberFormat.getInstance(Locale.getDefault())
-    formatter.minimumFractionDigits = 2
-    return formatter.format(this)
-}
+fun Double.format(): String =
+        NumberFormat.getInstance(Locale.getDefault())
+                .apply {
+                    minimumFractionDigits = 2
+                }
+                .format(this)
 
-fun Double.format(currencyCode: String): String {
-    val formatter = NumberFormat.getCurrencyInstance(Locale.getDefault())
-    formatter.currency = Currency.getInstance(currencyCode)
-    return formatter.format(this)
-}
+/**
+ * Format an amount of a specific currency.
+ */
+fun Double.formatAmount(currencyCode: String): String =
+        NumberFormat.getCurrencyInstance(Locale.getDefault())
+                .apply {
+                    currency = Currency.getInstance(currencyCode)
+                }
+                .format(this)
 
-fun Double.accessibilityFormat(currencyCode: String): String {
-    val formatter = NumberFormat.getCurrencyInstance(Locale.getDefault())
-    formatter.currency = Currency.getInstance(currencyCode)
-    val value = formatter.format(this)
-    return value.replace("-([^0-9]+)".toRegex(), "$1-")
-}
-
-fun String.removeCurrencySign(currency: Currency): String =
-        if (this.contains(currency.symbol)) {
-            replace(currency.symbol, "")
-        } else {
-            this
-        }
+/**
+ * Format an amount of a specific currency in order to use it for accessibility purpose.
+ *
+ * * €50 -&gt; €50
+ * * -€50 -&gt; €-50
+ */
+fun Double.formatAmountForAccessibility(currencyCode: String): String =
+        NumberFormat.getCurrencyInstance(Locale.getDefault())
+                .apply {
+                    currency = Currency.getInstance(currencyCode)
+                }
+                .format(this)
+                .replace("-([^0-9]+)".toRegex(), "$1-")
